@@ -14,6 +14,10 @@ application up and running.
 * Configure layout and design
 
 ## User Story #2 - As a User, I want to see what 30 minute timeslots are available to schedule with a particular coach.
+* 
+
+## User Story # 3 - As a User, I want to book an appointment with a coach at one of their available times.
+* Test out PUT requests on timeslots to change "available" field to false
 
 ### Basic Project Outline
 
@@ -34,3 +38,5 @@ npm i
 * If you are running this application on a deployed service such as Netlify or Vercel, please be sure to add REACT_APP_DATABASE as an environmental variable set to your desired backend.
 
 ### Challenges/Issues encountered
+
+* I was struggling with having a lot of incorrect timeslots, but with troubleshooting I figured out that I was bringing in data from the original database request instead of the filtered data sets I had created for each coach.
