@@ -15,7 +15,6 @@ const Timeslots = (props) => {
     })
 
 
-
     ////////////////////////////////
     // Functions
     ////////////////////////////////
@@ -40,7 +39,7 @@ const Timeslots = (props) => {
     }, [props.timeslots])
 
     const dayDisplay = days.map((item, index) => {
-        let availableTimes = props.timeslots.filter((timeslot, index2) => {
+        let availableTimes = timeslots.filter((timeslot, index2) => {
             return (
                 timeslot.day_of_week === item
             )
