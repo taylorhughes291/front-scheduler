@@ -29,7 +29,7 @@ const Coaches = (props) => {
 
     useEffect(() => {
         reduceCoaches()
-    }, [])
+    }, [props.availabilities])
 
     function ControlledTabs() {
         const [key, setKey] = useState('home');
