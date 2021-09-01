@@ -60,7 +60,24 @@
 
 }
 
-button {
+button.timeslot {
   width: 100px;
   margin: 5px 5px !important;
+}
+
+form {
+  margin: 15px 0 0;
+}
+
+p {
+  margin: 0 !important;
+}
+
+input {
+  margin: 0 0 10px !important;
+  width: 100%;
+}
+
+#controlled-tab-example-tabpane-home {
+  margin: 20px !important;
 }

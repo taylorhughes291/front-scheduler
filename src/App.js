@@ -1,6 +1,7 @@
 import Coaches from "./components/coaches"
 import './App.css';
 import {useState, useEffect} from "react"
+import {Modal, Button} from "react-bootstrap"
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const url = process.env.REACT_APP_DATABASE
   const [availabilities, setAvailabilities] = useState([])
   const [timeslots, setTimeslots] = useState([])
+
 
   /////////////////////////////
   // Functions
@@ -42,11 +44,30 @@ function App() {
     .then((data) => {
       setTimeslots(data)
     })
-  }
+    }
+
+    // This will enable us to make a PUT request
+    const modifyTimeslot = (id, newBody) => {
+      const modifyUrl = url + "/timeslots/" + id
+      fetch(modifyUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newBody)
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        getDbData()
+      })
+    }
 
   /////////////////////////////
   // Render
   /////////////////////////////
+
+
+  
 
   useEffect(() => {
     getDbData()
@@ -58,6 +79,7 @@ function App() {
       <Coaches
         availabilities={availabilities}
         timeslots={timeslots}
+        modifyTimeslot={modifyTimeslot}
       ></Coaches>
     </div>
   );
