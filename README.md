@@ -14,6 +14,16 @@ application up and running.
 * Configure layout and design
 
 ## User Story #2 - As a User, I want to see what 30 minute timeslots are available to schedule with a particular coach.
+* Write GET request to accept new timeslot data
+* Pass as props down through coaches component into new component timeslots
+* Filter out all timeslots data in coaches, then re-organize timeslots by day of the week in timeslots.
+* Render all available timeslots
+* Style as necessary
+
+## User Story # 3 - As a User, I want to book an appointment with a coach at one of their available times.
+* Create the ability to make a PUT request through the app.
+* Create a modal that will Accept the user's name and phone number and confirm the timeslot. Upon, submit, send the PUT request to the database with the "available" flag set to "false"
+* Pop up with a confirmation message that everything worked.
 
 ### Basic Project Outline
 
@@ -34,3 +44,5 @@ npm i
 * If you are running this application on a deployed service such as Netlify or Vercel, please be sure to add REACT_APP_DATABASE as an environmental variable set to your desired backend.
 
 ### Challenges/Issues encountered
+
+* I was struggling with having a lot of incorrect timeslots, but with troubleshooting I figured out that I was bringing in data from the original database request instead of the filtered data sets I had created for each coach.
