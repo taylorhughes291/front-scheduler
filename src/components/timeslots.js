@@ -50,9 +50,9 @@ const Timeslots = (props) => {
             )
         })
         return (
-            <div key={index}>
+            <div key={index} className="day-cont">
                 <h2>{item}</h2>
-                <div>
+                <div className="times-cont">
                     {availableTimes}
                 </div>
             </div>
