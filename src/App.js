@@ -42,7 +42,23 @@ function App() {
     .then((data) => {
       setTimeslots(data)
     })
-  }
+    }
+
+    // This will enable us to make a PUT request
+    const modifyTimeslot = (id, newBody) => {
+      const modifyUrl = url + "/timeslots/" + id
+      fetch(modifyUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newBody)
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        getDbData()
+      })
+    }
 
   /////////////////////////////
   // Render
@@ -58,6 +74,7 @@ function App() {
       <Coaches
         availabilities={availabilities}
         timeslots={timeslots}
+        modifyTimeslot={modifyTimeslot}
       ></Coaches>
     </div>
   );

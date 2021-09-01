@@ -46,7 +46,7 @@ const Timeslots = (props) => {
         })
         availableTimes = availableTimes.map((timeslot, index) => {
             return (
-                <Button variant="outline-secondary">{timeslot.time}</Button>
+                <Button key={index} variant="outline-secondary">{timeslot.time}</Button>
             )
         })
         return (
