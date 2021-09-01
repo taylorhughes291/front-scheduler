@@ -48,12 +48,19 @@
 }
 
 .day-cont h2 {
-  max-width: 200px;
+  max-width: 225px;
   width: 100%;
   text-align: center;
-  margin: 0 auto;
 }
 
 .times-cont {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
+}
+
+button {
+  width: 100px;
+  margin: 5px 5px !important;
 }
