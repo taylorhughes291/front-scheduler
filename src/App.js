@@ -10,12 +10,14 @@ function App() {
 
   const url = process.env.REACT_APP_DATABASE
   const [availabilities, setAvailabilities] = useState([])
+  const [timeslots, setTimeslots] = useState([])
 
   /////////////////////////////
   // Functions
   /////////////////////////////
 
   const getDbData = () => {
+    //First we'll get the high level coaches data
     const getUrl = url + "/availabilities.json"
     fetch(getUrl, {
       method: "GET",
@@ -26,6 +28,19 @@ function App() {
     .then((response) => (response.json()))
     .then((data) => {
       setAvailabilities(data)
+    })
+
+    //Here we will retrieve the granular available timeslots
+    const timeslotUrl = url + "/timeslots.json"
+    fetch(timeslotUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((response) => (response.json()))
+    .then((data) => {
+      setTimeslots(data)
     })
   }
 
@@ -42,6 +57,7 @@ function App() {
     <div className="App">
       <Coaches
         availabilities={availabilities}
+        timeslots={timeslots}
       ></Coaches>
     </div>
   );

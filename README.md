@@ -13,9 +13,17 @@ application up and running.
 * Display all data
 * Configure layout and design
 
-### System Requirements - what platform/service am I deployed to
+## User Story #2 - As a User, I want to see what 30 minute timeslots are available to schedule with a particular coach.
 
-### Build/Run Instructions
+### Basic Project Outline
+
+* Modify React DB request to accept new timeslot data and house it in state
+* Use bootstrap buttons to display all available time slots for each coach
+* Modify design and layout as needed
+
+## System Requirements - what platform/service am I deployed to
+
+## Build/Run Instructions
 * Ensure that once the repository is cloned on your computer and you are in the "scheduler-front" folder, you run the following terminal command so that you are up to date on all installed packages.
 ```
 npm i
