@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+import Coaches from "./components/coaches"
 import './App.css';
 import {useState, useEffect} from "react"
+
 
 function App() {
   /////////////////////////////
@@ -36,9 +37,12 @@ function App() {
     getDbData()
   }, [])
 
+
   return (
     <div className="App">
-
+      <Coaches
+        availabilities={availabilities}
+      ></Coaches>
     </div>
   );
 }
