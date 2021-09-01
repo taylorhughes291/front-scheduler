@@ -1,23 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from "react"
 
 function App() {
+  /////////////////////////////
+  // Constants
+  /////////////////////////////
+
+  const url = process.env.REACT_APP_DATABASE
+  const [availabilities, setAvailabilities] = useState([])
+
+  /////////////////////////////
+  // Functions
+  /////////////////////////////
+
+  const getDbData = () => {
+    const getUrl = url + "/availabilities.json"
+    fetch(getUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((response) => (response.json()))
+    .then((data) => {
+      setAvailabilities(data)
+    })
+  }
+
+  /////////////////////////////
+  // Render
+  /////////////////////////////
+
+  useEffect(() => {
+    getDbData()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
