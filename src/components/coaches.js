@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Tabs, Tab } from "react-bootstrap"
+import { Tabs, Tab, Modal, Button } from "react-bootstrap"
 import Timeslots from "./timeslots"
 
 const Coaches = (props) => {
@@ -9,6 +9,7 @@ const Coaches = (props) => {
     /////////////////////
 
     const [coaches, setCoaches] = useState([])
+
 
     /////////////////////
     // Functions
@@ -23,6 +24,8 @@ const Coaches = (props) => {
         distinctCoaches = [...new Set(distinctCoaches)]
         setCoaches(distinctCoaches)
     }
+
+
 
     /////////////////////
     // Render

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Button} from "react-bootstrap"
+import {Button, Modal} from "react-bootstrap"
 
 const Timeslots = (props) => {
 
@@ -13,6 +13,13 @@ const Timeslots = (props) => {
             item.coach === props.coach
         )
     })
+    const [timeSelected, setTimeSelected] = useState({
+        id: "",
+        time: "",
+        day_of_week: ""
+      })
+
+    const [show, setShow] = useState(false);
 
 
     ////////////////////////////////
@@ -30,13 +37,47 @@ const Timeslots = (props) => {
         setDays(distinctDays)
     }
 
+    function ConfirmationModal() {
+        
+      
+        const handleClose = () => setShow(false);
+        
+      
+        return (
+          <>      
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Confirm Your Appointment</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                  Please enter your information below to confirm your {timeSelected.time} {timeSelected.day_of_week} appointment with {props.coach}.
+                  <form>
+                    <p>Name:</p>
+                    <input type="text"></input>
+                    <p>Phone Number:</p>
+                    <input type="text"></input>
+                  </form>
+                </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Confirm Appointment
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        );
+      }
+
     ////////////////////////////////
     // Render
     ////////////////////////////////
 
     useEffect(() => {
         reduceDays()
-    }, [props.timeslots])
+    }, [])
 
     const dayDisplay = days.map((item, index) => {
         let availableTimes = timeslots.filter((timeslot, index2) => {
@@ -46,7 +87,17 @@ const Timeslots = (props) => {
         })
         availableTimes = availableTimes.map((timeslot, index) => {
             return (
-                <Button key={index} variant="outline-secondary">{timeslot.time}</Button>
+                <Button 
+                    key={index} 
+                    variant="outline-secondary"
+                    className="timeslot"
+                    onClick={() => {
+                        setTimeSelected({id: timeslot.id, time: timeslot.time, day_of_week: timeslot.day_of_week})
+                        setShow(true)
+                    }}
+                >
+                    {timeslot.time}
+                </Button>
             )
         })
         return (
@@ -64,6 +115,7 @@ const Timeslots = (props) => {
             <div>
                 {dayDisplay}
             </div>
+            <ConfirmationModal />
         </>
     )
 }
