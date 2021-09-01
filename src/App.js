@@ -79,6 +79,7 @@ function App() {
       <Coaches
         availabilities={availabilities}
         timeslots={timeslots}
+        modifyTimeslot={modifyTimeslot}
       ></Coaches>
     </div>
   );

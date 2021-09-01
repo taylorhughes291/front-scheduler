@@ -77,3 +77,7 @@ input {
   margin: 0 0 10px !important;
   width: 100%;
 }
+
+#controlled-tab-example-tabpane-home {
+  margin: 20px !important;
+}

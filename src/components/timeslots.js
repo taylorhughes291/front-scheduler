@@ -10,7 +10,7 @@ const Timeslots = (props) => {
     const [days, setDays] = useState([])
     const timeslots = props.timeslots.filter((item, index) => {
         return (
-            item.coach === props.coach
+            item.coach === props.coach && item.available === true
         )
     })
     const [timeSelected, setTimeSelected] = useState({
@@ -62,7 +62,15 @@ const Timeslots = (props) => {
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button 
+                    variant="primary" 
+                    onClick={() => {
+                        handleClose()
+                        props.setIsSet({time: timeSelected.time, day_of_week: timeSelected.day_of_week, coach: props.coach})
+                        props.modifyTimeslot(timeSelected.id, {available: false})
+                    }}
+
+                >
                   Confirm Appointment
                 </Button>
               </Modal.Footer>

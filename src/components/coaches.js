@@ -9,6 +9,11 @@ const Coaches = (props) => {
     /////////////////////
 
     const [coaches, setCoaches] = useState([])
+    const [isSet, setIsSet] = useState({
+        time: "",
+        day_of_week: "",
+        coach: ""
+    })
 
 
     /////////////////////
@@ -43,6 +48,8 @@ const Coaches = (props) => {
                     <Timeslots 
                         coach={item}
                         timeslots = {props.timeslots}
+                        modifyTimeslot={props.modifyTimeslot}
+                        setIsSet={setIsSet}
                     />
                 </Tab>
             )
@@ -56,6 +63,8 @@ const Coaches = (props) => {
             className="mb-3"
           >
             <Tab eventKey="home" title="Home">
+                {isSet.time !== "" && <h2>Congratulations! Your appointment is set for {isSet.time} {isSet.day_of_week} with {isSet.coach}. Well done!</h2>}
+                <h3>If you would like to set up an appointment with a personal coach, please select a coach from the tab above to see a list of available appointment times. Thank you!</h3>
             </Tab>
             {coachList}
           </Tabs>
