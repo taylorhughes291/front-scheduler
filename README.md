@@ -18,6 +18,7 @@ application up and running.
 ### Basic Project Outline
 
 * Modify React DB request to accept new timeslot data and house it in state
+* Filter out timeslots for each coach and display only their availabilities on their tab
 * Use bootstrap buttons to display all available time slots for each coach
 * Modify design and layout as needed
 

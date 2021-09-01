@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Tabs, Tab } from "react-bootstrap"
+import Timeslots from "./timeslots"
 
 const Coaches = (props) => {
 
@@ -36,6 +37,10 @@ const Coaches = (props) => {
         const coachList = coaches.map((item, index) => {
             return (
                 <Tab eventKey={item} title={item} key={index}>
+                    <Timeslots 
+                        coach={item}
+                        timeslots = {props.timeslots}
+                    />
                 </Tab>
             )
         })
