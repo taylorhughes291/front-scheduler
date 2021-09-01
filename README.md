@@ -33,15 +33,19 @@ application up and running.
 * Modify design and layout as needed
 
 ## System Requirements - what platform/service am I deployed to
+I recommend using either Vercel or Netlify. Either work. I ended up using both.
 
 ## Build/Run Instructions
+
+### LOCAL DEV INSTRUCTIONS
 * Ensure that once the repository is cloned on your computer and you are in the "scheduler-front" folder, you run the following terminal command so that you are up to date on all installed packages.
 ```
 npm i
 ```
 * If you are running this application on your local machine, please create a file called .env and create an environmental variable called REACT_APP_DATABASE with your desired backend URL attached. You can find a suitable backend at the github link https://github.com/taylorhughes291/scheduler
 
-* If you are running this application on a deployed service such as Netlify or Vercel, please be sure to add REACT_APP_DATABASE as an environmental variable set to your desired backend.
+### DEPLOYMENT SERVICE
+* If you are running this application on a deployed service such as Netlify or Vercel, please be sure to add REACT_APP_DATABASE as an environmental variable set to your desired backend URL, with no trailing forward-slash in the URL.
 
 ### Challenges/Issues encountered
 
